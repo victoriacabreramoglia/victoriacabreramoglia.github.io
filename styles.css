@@ -1,0 +1,232 @@
+/* global variable store--right now used only for color scheme */
+:root {
+    --default-bg-color: #FAFAFA;
+    --primary-color: #66023C;
+    --secondary-color: #F0386B;
+    --alt-bg-aggressive: #FF5376;
+    --alt-bg-subtle: #F8C0C8;
+    --default-font: 'Alegreya', serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--default-font);
+}
+
+a {
+  color: inherit;
+  text-decoration: underline solid;
+  text-decoration-thickness: 2px;
+}
+
+.welcome_screen_header {
+  background-color: var(--default-bg-color);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.welcome_screen_header--me-in-brief {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  text-align: left;
+}
+
+.welcome_screen_header--me-in-brief-bio-box {
+  margin: 0 0 0 8vw;
+}
+
+
+.welcome_screen_header--me-in-brief-name {
+  color: var(--primary-color);
+  display: inline-block;
+  width: min-content;
+  font-size: 3vw;
+  margin: 0 0 1vh 0;
+  text-shadow: .5px .5px var(--alt-bg-subtle);
+}
+
+.welcome_screen_header--me-in-brief-pronouns {
+  color: var(--secondary-color);
+  font-size: 1.5vw;
+  weight: 400;
+  font-style: italic;
+  text-shadow: .5px .5px var(--alt-bg-subtle);
+}
+
+.welcome_screen_header--me-in-brief-quote {
+  padding: 10vh 0 0 15%;
+  font-size: 1.5vw;
+  color: var(--alt-bg-subtle);
+  max-width: 70%;
+  text-shadow: .5px .5px var(--alt-bg-aggressive);
+}
+
+.welcome_screen_header--me-in-brief-contact-hed {
+  list-style: none;
+  display: inline-block;
+  margin: 1vw 0 1vw 23%;
+  font-weight: 500;
+  text-shadow: .5px .5px var(--alt-bg-subtle);
+  font-size: 2vw;
+}
+
+.welcome_screen_header--me-in-brief-contact-hed:hover {
+  color: var(--alt-bg-subtle);
+}
+
+/* chrome needs this in order to remove the arrow
+from details elements */
+
+.welcome_screen_header--me-in-brief-contact-hed::-webkit-details-marker {
+  display: none;
+}
+
+.welcome_screen_header--me-in-brief-contact {
+  background-color: var(--primary-color);
+  font-size: 1.5vw;
+  color: var(--default-bg-color);
+}
+
+
+.welcome_screen_header--me-in-brief-contact[open] {
+  position: absolute;
+  top: 33.3vh;
+  height: 66.7vh;
+  width: 25vw;
+}
+
+.welcome_screen_header--me-in-brief-contact-list {
+
+}
+
+.welcome_screen_header--me-in-brief-contact-item {
+
+}
+
+.welcome_screen_header--nav {
+  height: 100%;
+}
+
+.welcome_screen_header--nav-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.welcome_screen_header--nav-item {
+  list-style-type: none;
+  flex-grow: 1;
+  display: block;
+  text-align;
+  font-size: 3vw;
+  font-weight: 700;
+  padding: 11vh 7.5% 0 7.5%;
+}
+
+.welcome_screen_header--nav-item:nth-child(odd) {
+  background-color: var(--alt-bg-aggressive);
+  color: var(--primary-color);
+  text-shadow: .5px .5px var(--alt-bg-subtle);
+}
+
+.welcome_screen_header--nav-item:nth-child(even) {
+  background-color: var(--alt-bg-subtle);
+  color: var(--default-bg-color);
+  text-shadow: .5px .5px var(--alt-bg-aggressive);
+}
+
+@media all and (max-width: 599px) {
+  .welcome_screen_header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome_screen_header--me-in-brief {
+    width: 100%;
+  }
+
+  .welcome_screen_header--me-in-brief-bio-box {
+    /* border-bottom: solid 2px var(--alt-bg-aggressive); */
+  }
+
+  .welcome_screen_header--me-in-brief-name {
+    width: max-content;
+    font-size: 5vh;
+  }
+
+  .welcome_screen_header--me-in-brief-pronouns {
+    font-size: 3vh;
+  }
+
+  .welcome_screen_header--me-in-brief-quote {
+    font-size: 2.5vh;
+    padding: 0;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .welcome_screen_header--me-in-brief-contact {
+    padding: 10% 0 0 0;
+  }
+
+  .welcome_screen_header--me-in-brief-contact[open] {
+    width: 100vw;
+    height: 35vh;
+    top: 15vh;
+    font-size: 2.5vh;
+    padding: 1vh 1vh 0 1vh;
+  }
+
+  .welcome_screen_header--me-in-brief-contact-hed {
+    font-size: 3vh;
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0 0 2vh 0;
+  }
+
+  .welcome_screen_header--nav-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .welcome_screen_header--nav-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    transform: scale(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vh;
+    padding-top: 0;
+  }
+
+  .welcome_screen_header--nav-item:first-child::after {
+    content: "swipe! →";
+    font-size: 3vh;
+    position: absolute;
+    top: 90%;
+    left: 80%;
+  }
+
+  .welcome_screen_header--nav-item:last-child::after {
+    content: "← alas! no more content to be had";
+    font-size: 3vh;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+  }
+}
